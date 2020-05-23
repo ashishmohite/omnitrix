@@ -1,0 +1,12 @@
+{
+  "Name": "terraform-aws-elastic-beanstalk-application",
+  "Description": "terraform-aws-elastic-beanstalk-application description",
+  "TerraformVersion": "~> 0.12",
+  "Provider": "aws",
+  "ProviderVersion": "~> 2.0",
+  "Map": {
+    "Of": {
+      "String": "some string"
+    }
+  }
+}

@@ -1,0 +1,27 @@
+name: Buid
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Install Go
+        uses: actions/setup-go@v1
+        with:
+          go-version: 1.13.x
+      - name: Install golangci-lint
+        run: curl -sfL "https://install.goreleaser.com/github.com/golangci/golangci-lint.sh" | sh -s -- -b $(go env GOPATH)/bin v1.24.0
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Lint
+        run: make lint
+      - name: Test
+        run: make test
